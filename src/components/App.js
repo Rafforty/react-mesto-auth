@@ -22,6 +22,7 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
+  const [isImageOpen, setIsImageOpen] = React.useState(false);
 
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
@@ -49,12 +50,13 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setSelectedCard({});
     setIsTooltipOpen(false);
+    setIsImageOpen(false);
   }
 
   function handleCardClick(card) {
     setSelectedCard(card);
+    setIsImageOpen(true);
   }
 
   function handleTooltipOpen() {
@@ -229,6 +231,7 @@ function App() {
           onAddPlace={handleAddPlaceSubmit}
         />
         <ImagePopup 
+          isOpen={isImageOpen}
           card={selectedCard} 
           onClose={closeAllPopups}
         />

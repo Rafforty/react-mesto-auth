@@ -62,6 +62,7 @@ function App() {
   }
 
   React.useEffect(() => {
+    if (isLoggedIn) {
     Promise.all([api.getUser(), api.getInitialCards()])
       .then(([user, cards]) => {
         setCurrentUser(user);
@@ -70,7 +71,8 @@ function App() {
         .catch((error) => {
           console.log(`Error: ${error}`);
         });
-  }, []);
+      }
+  }, [isLoggedIn]);
 
   function handleUpdateUser(user) {
     api.changeUser(user)
@@ -142,13 +144,14 @@ function App() {
     );
   }
 
-  function tokenCheck() {
+  function handleTokenCheck() {
     if (localStorage.getItem("jwt")) {
       const jwt = localStorage.getItem("jwt");
       auth.checkToken(jwt)
         .then((res) => {
           if (res) {
-            setEmail(email);
+            // console.log(res)
+            setEmail(res.data.email);
             setIsLoggedIn(true);
             history.push("/");
           };
@@ -157,7 +160,7 @@ function App() {
   };
 
   React.useEffect (() => {
-    tokenCheck();
+    handleTokenCheck();
   }, [])
 
   function handleLogout() {
@@ -165,8 +168,8 @@ function App() {
     history.push("/signin");
   }
 
-  function handleLogin(email, password) {
-    auth.authorize(email, password)
+  function handleLogin(password, email) {
+    auth.authorize(password, email)
       .then((data) => {
         setIsLoggedIn(true);
         localStorage.setItem("jwt", data.token);

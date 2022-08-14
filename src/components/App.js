@@ -30,7 +30,7 @@ function App() {
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [email, setEmail] = React.useState([]);
+  const [email, setEmail] = React.useState("");
 
   const history = useHistory();
 

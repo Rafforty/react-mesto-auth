@@ -4,7 +4,7 @@
 
 Добавлена регистрация пользователей, только зарегистрированные пользователи могут просматривать картинки.
 
-Страница проекта на gh-pages: [Mesto-react-auth](https://rafforty.github.io/mesto-react-auth)
+Страница проекта на gh-pages: [Mesto-react-auth](https://rafforty.github.io/react-mesto-auth/)
 
 Планы по дальнейшему улучшению:
 

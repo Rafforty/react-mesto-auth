@@ -1,6 +1,6 @@
 {
-  "homepage": "https://rafforty.github.io/mesto-react-auth",
-  "name": "mesto-react-auth",
+  "homepage": "https://rafforty.github.io/react-mesto-auth",
+  "name": "react-mesto-auth",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
